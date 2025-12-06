@@ -50,7 +50,9 @@
       style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(15,23,42,0.4), rgba(15,23,42,0.8)); z-index: 1;">
     </div>
     <video autoplay muted loop playsinline class="hero-video">
-      <source src="https://github.com/MuriloCarvalhoo/razimotors/raw/refs/heads/master/assets/images/video-apresentacao.mp4" type="video/mp4">
+      <source
+        src="https://github.com/MuriloCarvalhoo/razimotors/raw/refs/heads/master/assets/images/video-apresentacao.mp4"
+        type="video/mp4">
       <img src="assets/images/estrutura.png" alt="Razi Motors Galpão">
     </video>
 
@@ -262,27 +264,35 @@
         <!-- Form -->
         <div>
           <h2 style="margin-bottom: 1.5rem;">Solicite uma Cotação</h2>
-          <p style="margin-bottom: 2rem; color: var(--color-brand-gray);">Preencha o formulário abaixo para atendimento
-            comercial corporativo.</p>
+          <p style="margin-bottom: 2rem; color: var(--color-brand-gray);">Entre em contato diretamente através de nossos
+            canais oficiais:</p>
 
-          <form style="display: grid; gap: 1rem;">
-            <input type="text" placeholder="Nome Completo"
-              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
-            <input type="email" placeholder="Email Corporativo"
-              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
-            <input type="text" placeholder="Empresa / Órgão"
-              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <input type="text" placeholder="Telefone"
-                style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
-              <input type="number" placeholder="Tamanho da Frota"
-                style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+          <div
+            style="display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.1rem; color: var(--color-brand-dark);">
+            <!-- Email -->
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <span
+                style="font-size: 0.9rem; color: var(--color-brand-gray); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Email</span>
+              <a href="mailto:razifrotas@gmail.com"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--color-brand-accent);">razifrotas@gmail.com</a>
             </div>
-            <textarea rows="4" placeholder="Mensagem"
-              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);"></textarea>
-            <button type="submit" class="btn btn-primary" style="justify-content: center; width: 100%;">Enviar
-              Solicitação</button>
-          </form>
+
+            <!-- WhatsApp -->
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <span
+                style="font-size: 0.9rem; color: var(--color-brand-gray); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">WhatsApp</span>
+              <a href="https://wa.me/5511941672776" target="_blank"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--color-brand-accent);">+55 11 94167-2776</a>
+            </div>
+
+            <!-- Instagram -->
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <span
+                style="font-size: 0.9rem; color: var(--color-brand-gray); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Instagram</span>
+              <a href="https://www.instagram.com/razimotors" target="_blank"
+                style="font-size: 1.25rem; font-weight: 600; color: var(--color-brand-accent);">@razimotors</a>
+            </div>
+          </div>
         </div>
 
         <!-- Map / Info -->
