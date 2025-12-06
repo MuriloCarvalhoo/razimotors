@@ -1,0 +1,25 @@
+{
+  "name": "razimotors",
+  "version": "1.0.0",
+  "description": "**\"A Força nos Bastidores da Segurança\"** A marca não é apenas uma oficina; é um centro de operações industriais que garante que veículos vitais (como a maior frota policial de SP) estejam prontos para servir. A essência é a **Confiabilidade em Escala**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuriloCarvalhoo/razimotors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MuriloCarvalhoo/razimotors/issues"
+  },
+  "homepage": "https://github.com/MuriloCarvalhoo/razimotors#readme",
+  "devDependencies": {
+    "vite": "^7.2.6"
+  }
+}

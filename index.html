@@ -1,604 +1,316 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razi Motors - Especialistas em Viaturas e Veículos Especiais</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .header-container {
-            max-width: 1920px;
-            margin: 0 auto;
-            padding: 0 clamp(20px, 3vw, 60px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: bold;
-            color: #f39c12;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: clamp(1rem, 2vw, 2rem);
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        }
-
-        nav a:hover {
-            color: #f39c12;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('carros-camuflados.jpg');
-            background-size: cover;
-            background-position: center;
-            min-height: clamp(400px, 60vh, 800px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 70px;
-            max-width: 100%;
-            padding: clamp(20px, 5vw, 60px);
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 2rem);
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: clamp(12px, 2vw, 18px) clamp(30px, 4vw, 50px);
-            background: #f39c12;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        }
-
-        .btn:hover {
-            background: #e67e22;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
-        }
-
-        /* Sections */
-        section {
-            padding: clamp(40px, 8vw, 100px) clamp(20px, 3vw, 60px);
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 3.5rem);
-            margin-bottom: clamp(2rem, 4vw, 4rem);
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: clamp(60px, 8vw, 120px);
-            height: clamp(3px, 0.5vw, 5px);
-            background: #f39c12;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-            gap: clamp(2rem, 4vw, 4rem);
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: #f39c12;
-            margin-bottom: 1rem;
-            font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            text-align: justify;
-            font-size: clamp(1rem, 1.5vw, 1.3rem);
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        .services {
-            background: #f8f9fa;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: clamp(1.5rem, 3vw, 3rem);
-        }
-
-        .service-card {
-            background: white;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .service-card h3 {
-            color: #f39c12;
-            margin-bottom: 1rem;
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
-        }
-
-        .service-card p {
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        }
-
-        .service-icon {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            color: #f39c12;
-            margin-bottom: 1rem;
-        }
-
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: clamp(1.5rem, 3vw, 3rem);
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: clamp(250px, 30vw, 400px);
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: clamp(0.8rem, 2vw, 1.5rem);
-            transform: translateY(100%);
-            transition: transform 0.3s;
-            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        /* Process Section */
-        .process {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .process .section-title {
-            color: white;
-        }
-
-        .process .section-title::after {
-            background: #f39c12;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-            gap: clamp(1.5rem, 3vw, 3rem);
-        }
-
-        .process-step {
-            text-align: center;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
-        }
-
-        .step-number {
-            background: #f39c12;
-            width: clamp(50px, 6vw, 80px);
-            height: clamp(50px, 6vw, 80px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: clamp(1.2rem, 2vw, 2rem);
-            font-weight: bold;
-        }
-
-        .process-step h3 {
-            margin-bottom: 1rem;
-            color: #f39c12;
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-        }
-
-        .process-step p {
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: clamp(1.5rem, 3vw, 3rem);
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .contact-icon {
-            font-size: clamp(2rem, 3vw, 3.5rem);
-            color: #f39c12;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-        }
-
-        .contact-card p {
-            color: #666;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        }
-
-        .contact-card a {
-            color: #f39c12;
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: clamp(2rem, 4vw, 4rem) clamp(20px, 3vw, 60px);
-        }
-
-        .footer-content {
-            max-width: 1920px;
-            margin: 0 auto;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        }
-
-        .social-links {
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: clamp(1.2rem, 2vw, 2rem);
-            margin: 0 clamp(0.5rem, 1.5vw, 1.5rem);
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            color: #f39c12;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                justify-content: center;
-                text-align: center;
-            }
-
-            nav {
-                width: 100%;
-                margin-top: 1rem;
-            }
-
-            nav ul {
-                justify-content: center;
-            }
-
-            .hero {
-                margin-top: 120px;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .services-grid,
-            .gallery-grid,
-            .process-steps,
-            .contact-info {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-        }
-
-        @media (min-width: 2560px) {
-            body {
-                font-size: 1.2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Placeholder for images */
-        .placeholder-img {
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-        }er;
-            justify-content: center;
-            color: #666;
-            font-style: italic;
-            height: 300px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razi Motors | Engenharia Automotiva e Gestão de Frotas</title>
+  <meta name="description"
+    content="Centro automotivo de 20.000m² especializado em gestão de frotas, blindados e manutenção de alta performance. Parceiro oficial de frotas governamentais e corporativas.">
+  <link rel="stylesheet" href="src/css/style.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">RAZI MOTORS</div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Razi Motors</h1>
-            <p>Especialistas em Viaturas e Veículos Especiais</p>
-            <a href="#contato" class="btn">Entre em Contato</a>
-        </div>
-    </section>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">Razi<span>Motors</span></a>
 
-    <!-- About Section -->
-    <section id="sobre">
-        <h2 class="section-title">Sobre a Razi Motors</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Excelência em Viaturas e Equipamentos</h3>
-                <p>A Razi Motors é referência no fornecimento e customização de viaturas policiais e veículos especiais. Com anos de experiência no mercado, oferecemos soluções completas para órgãos de segurança pública e empresas que necessitam de veículos especializados.</p>
-                <p>Nosso compromisso é entregar qualidade superior em cada projeto, garantindo que cada veículo atenda às especificações técnicas e operacionais mais rigorosas.</p>
-                <p>Contamos com profissionais altamente qualificados e parceiros certificados para garantir a excelência em todos os nossos serviços.</p>
-            </div>
-            <div class="about-image">
-                <img src="carro-camuflado-marrom.jpg" alt="Viatura Razi Motors" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            </div>
-        </div>
-    </section>
+      <button class="mobile-menu-btn" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Services Section -->
-    <section id="servicos" class="services">
-        <h2 class="section-title">Nossos Serviços</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🚗</div>
-                <h3>Fornecimento de Viaturas</h3>
-                <p>Fornecimento de veículos novos e seminovos, especialmente preparados para uso operacional, com toda a documentação necessária.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>Customização e Adesivação</h3>
-                <p>Personalização completa de viaturas com adesivos de alta qualidade, aplicação de verniz protetor e pintura especial.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Equipamentos Especiais</h3>
-                <p>Instalação de sinalizadores, rádios comunicadores, sistemas de segurança e demais equipamentos técnicos necessários.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Manutenção Especializada</h3>
-                <p>Serviços de manutenção preventiva e corretiva com equipe técnica especializada em viaturas operacionais.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📋</div>
-                <h3>Consultoria Técnica</h3>
-                <p>Assessoria completa para especificação, aquisição e adequação de viaturas às necessidades operacionais.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>Blindagem e Proteção</h3>
-                <p>Soluções em blindagem veicular e instalação de sistemas de proteção balística certificados.</p>
-            </div>
-        </div>
-    </section>
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#sobre">A Razi</a>
+        <a href="#infra">Infraestrutura</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#frotas">Para Frotas</a>
+        <a href="#contato" class="btn btn-primary btn-nav-cta">Fale Conosco</a>
+      </div>
+    </div>
 
-    <!-- Gallery Section -->
-    <section id="galeria">
-        <h2 class="section-title">Nossa Galeria</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="carro-camuflado-marrom.jpg" alt="Viatura Camuflada">
-                <div class="gallery-overlay">
-                    <h3>Viatura Tática Camuflada</h3>
-                    <p>Personalização completa com padrão camuflado</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="carros-camuflados.jpg" alt="Frota de Viaturas">
-                <div class="gallery-overlay">
-                    <h3>Frota Completa</h3>
-                    <p>Viaturas equipadas e prontas para operação</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="carro-camuflado-marrom.jpg" alt="Viatura Camuflada">
-                <div class="gallery-overlay">
-                    <h3>Viatura Tática Camuflada</h3>
-                    <p>Personalização completa com padrão camuflado</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="carro-camuflado-marrom.jpg" alt="Viatura Camuflada">
-                <div class="gallery-overlay">
-                    <h3>Viatura Tática Camuflada</h3>
-                    <p>Personalização completa com padrão camuflado</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#sobre">A Razi</a>
+      <a href="#infra">Infraestrutura</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#frotas">Para Frotas</a>
+      <a href="#contato" class="btn btn-primary">Fale Conosco</a>
+    </div>
+  </nav>
 
-    <!-- Process Section -->
-    <section class="process">
-        <h2 class="section-title">Nosso Processo</h2>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>Análise de Necessidades</h3>
-                <p>Reunião inicial para entender todas as demandas e especificações técnicas do projeto.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Proposta Técnica</h3>
-                <p>Elaboração de proposta detalhada considerando especificações, prazos e custos.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Desenvolvimento</h3>
-                <p>Customização e equipamento dos veículos conforme definições aprovadas.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Entrega e Suporte</h3>
-                <p>Entrega final com avaliação completa e suporte técnico continuado.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="video-overlay"
+      style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(15,23,42,0.4), rgba(15,23,42,0.8)); z-index: 1;">
+    </div>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/images/video-apresentacao.mp4" type="video/mp4">
+      <img src="assets/images/estrutura.png" alt="Razi Motors Galpão">
+    </video>
 
-    <!-- Contact Section -->
-    <section id="contato">
-        <h2 class="section-title">Entre em Contato</h2>
-        <div class="contact-info">
-            <div class="contact-card">
-                <div class="contact-icon">📍</div>
-                <h3>Endereço</h3>
-                <p>R. Plínio Dionísio de Freitas, 10<br>
-                Jardim São Roberto<br>
-                São Paulo - SP, 03978-780</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📱</div>
-                <h3>Telefone</h3>
-                <p>(11) XXXX-XXXX<br>
-                WhatsApp: (11) 9XXXX-XXXX</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📧</div>
-                <h3>E-mail</h3>
-                <p><a href="/cdn-cgi/l/email-protection#94f7fbfae0f5e0fbd4e6f5eefdf9fbe0fbe6e7baf7fbf9baf6e6"><span class="__cf_email__" data-cfemail="c0a3afaeb4a1b4af80b2a1baa9adafb4afb2b3eea3afadeea2b2">[email&#160;protected]</span></a></p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">⏰</div>
-                <h3>Horário de Atendimento</h3>
-                <p>Segunda a Sexta: 8h às 18h<br>
-                Sábado: 8h às 12h</p>
-            </div>
-        </div>
-    </section>
+    <div class="container hero-content reveal">
+      <h1 class="hero-title">Engenharia de Ponta e Capacidade Industrial</h1>
+      <p class="hero-subtitle">
+        Mais de 20.000m² de infraestrutura one-stop-shop. Da mecânica de precisão à blindagem.
+        O parceiro oficial das maiores operações de segurança do estado.
+      </p>
+      <div class="hero-buttons">
+        <a href="#frotas" class="btn btn-primary">Cotar Gestão de Frota</a>
+        <a href="#infra" class="btn btn-outline">Conhecer Estrutura</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="logo">RAZI MOTORS</div>
-            <div class="social-links">
-                <a href="https://www.instagram.com/razimotors/" target="_blank">📸 Instagram</a>
-                <a href="#">📘 Facebook</a>
-                <a href="#">💼 LinkedIn</a>
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal delay-200">
+          <h3>20.000m²</h3>
+          <p>Área Industrial</p>
+        </div>
+        <div class="stat-item reveal delay-200">
+          <h3>One-Stop-Shop</h3>
+          <p>Solução Completa</p>
+        </div>
+        <div class="stat-item reveal delay-200">
+          <h3>Tecnologia</h3>
+          <p>MotorClean™</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof (Caverão) -->
+  <section class="section-padding" style="background-color: var(--color-bg-light); color: var(--color-brand-dark);">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <img src="assets/images/caverao.png" alt="Veículo Blindado Policial na Razi Motors"
+            style="border-radius: var(--radius-sm); box-shadow: var(--shadow-lg);">
+        </div>
+        <div class="reveal delay-200">
+          <h4
+            style="color: var(--color-brand-accent); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; letter-spacing: 0.1em;">
+            Autoridade Comprovada</h4>
+          <h2 style="color: var(--color-brand-dark); margin-bottom: 1.5rem; font-size: 2.5rem;">Testado nas Condições
+            Mais Extremas</h2>
+          <p style="color: var(--color-brand-gray); margin-bottom: 2rem;">
+            A Razi Motors é responsável pela manutenção da maior frota policial do Estado de São Paulo.
+            Se garantimos a operacionalidade do BAEP e da Polícia Militar, garantimos a sua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre (About Us) -->
+  <section id="sobre" class="section-padding" style="background-color: white; color: var(--color-brand-dark);">
+    <div class="container">
+      <div class="grid-2 reverse-mobile">
+        <div class="reveal">
+          <h4 style="color: var(--color-brand-gray); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">
+            Sobre Nós</h4>
+          <h2 style="color: var(--color-brand-dark); margin-bottom: 1.5rem; font-size: 2.5rem;">Nossa Missão é a
+            Operacionalidade Absoluta</h2>
+          <p style="color: var(--color-brand-gray); margin-bottom: 1.5rem;">
+            Não somos apenas uma oficina. Somos um centro industrial automotivo projetado para eliminar o downtime.
+            Com processos padronizados e gestão matricial, transformamos manutenção em ativo estratégico.
+          </p>
+          <ul style="margin-bottom: 2rem; color: var(--color-brand-dark); font-weight: 500;">
+            <li style="margin-bottom: 0.5rem;">✓ Engenharia de Processos</li>
+            <li style="margin-bottom: 0.5rem;">✓ Gestão Matricial de Frotas</li>
+            <li>✓ Capacidade de Escala Industrial</li>
+          </ul>
+        </div>
+        <div class="reveal delay-200">
+          <img src="assets/images/bem-vindo.png" alt="Recepção Razi Motors"
+            style="border-radius: var(--radius-sm); box-shadow: var(--shadow-lg);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infraestrutura -->
+  <section id="infra" class="section-padding" style="background-color: var(--color-brand-dark); color: white;">
+    <div class="container">
+      <div class="text-center reveal" style="max-width: 800px; margin: 0 auto 4rem auto;">
+        <h4 style="color: var(--color-brand-accent); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">
+          Infraestrutura</h4>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Onde a Tecnologia Encontra a Escala</h2>
+        <p style="color: var(--color-text-muted);">Seu veículo não espera na fila; ele entra em um processo industrial
+          contínuo em nossos 20.000m².</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"
+        class="reveal delay-200">
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-sm);">
+          <img src="assets/images/estufa.png" alt="Estufa de Pintura"
+            style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Estufas Pressão Positiva</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Pintura nível montadora, ambiente controlado
+            livre de contaminantes.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-sm);">
+          <img src="assets/images/patio.png" alt="Pátio Logístico"
+            style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Pátio Logístico</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Capacidade de fluxo intenso sem gargalos
+            operacionais.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius-sm);">
+          <img src="assets/images/estrutura.png" alt="Elevadores Heavy Duty"
+            style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Elevadores Heavy-Duty</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Estrutura robusta para blindados e utilitários
+            da frota pesada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços (Services) -->
+  <section id="servicos" class="section-padding"
+    style="background-color: var(--color-bg-light); color: var(--color-brand-dark);">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: 4rem;">
+        <h4 style="color: var(--color-brand-accent); text-transform: uppercase;">One-Stop-Shop</h4>
+        <h2 style="font-size: 2.5rem;">Serviços Integrados</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <!-- Cards -->
+        <div class="reveal delay-200"
+          style="background: white; padding: 2rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border-top: 3px solid var(--color-brand-accent);">
+          <h3 style="margin-bottom: 1rem;">Funilaria e Pintura</h3>
+          <p style="color: var(--color-brand-gray);">Recuperação estética e estrutural de alta fidelidade com
+            laboratório próprio de colorimetria.</p>
+        </div>
+        <div class="reveal delay-200"
+          style="background: white; padding: 2rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border-top: 3px solid var(--color-brand-dark);">
+          <h3 style="margin-bottom: 1rem;">Mecânica Geral</h3>
+          <p style="color: var(--color-brand-gray);">Desde revisões preventivas até reparos complexos em motores e
+            transmissões.</p>
+        </div>
+        <div class="reveal delay-200"
+          style="background: white; padding: 2rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border-top: 3px solid var(--color-brand-accent);">
+          <h3 style="margin-bottom: 1rem;">Blindados</h3>
+          <p style="color: var(--color-brand-gray);">Especialistas em manutenção de veículos com proteção balística.
+            Vidros e mecanismos.</p>
+        </div>
+        <div class="reveal delay-200"
+          style="background: white; padding: 2rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border-top: 3px solid var(--color-brand-dark);">
+          <h3 style="margin-bottom: 1rem;">Elétrica e Diagnose</h3>
+          <p style="color: var(--color-brand-gray);">Varredura eletrônica avançada para identificar e corrigir falhas
+            sistêmicas.</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center" style="margin-top: 3rem;">
+        <img src="assets/images/carro-camuflado-marrom.jpg" alt="Serviço em Blindado"
+          style="max-height: 400px; width: 100%; object-fit: cover; border-radius: var(--radius-sm); filter: grayscale(20%);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Frotas (B2B) -->
+  <section id="frotas" class="section-padding"
+    style="background-color: var(--color-brand-dark); position: relative; overflow: hidden;">
+    <!-- Background Image overlay -->
+    <div
+      style="position: absolute; top:0; right:0; width: 50%; height: 100%; background: url('assets/images/carros-camuflados.jpg') no-repeat center center/cover; opacity: 0.2;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="max-width: 600px;">
+        <h4 style="color: var(--color-brand-accent); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">
+          Para Gestores de Frota</h4>
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.1;">Sua Frota Rodando. <br>Seu Custo
+          Controlado.</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">
+          Reduza o downtime e centralize sua operação. Atendimento prioritário e relatórios técnicos detalhados para
+          quem não pode parar.
+        </p>
+
+        <ul style="margin-bottom: 3rem; font-size: 1.1rem;">
+          <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span
+              style="color: var(--color-brand-accent); margin-right: 1rem; font-size: 1.5rem;">•</span> Gestão
+            Centralizada</li>
+          <li style="margin-bottom: 1rem; display: flex; align-items: center;"><span
+              style="color: var(--color-brand-accent); margin-right: 1rem; font-size: 1.5rem;">•</span> SLA de Entrega
+            Garantido</li>
+          <li style="display: flex; align-items: center;"><span
+              style="color: var(--color-brand-accent); margin-right: 1rem; font-size: 1.5rem;">•</span> Relatórios de
+            Business Intelligence</li>
+        </ul>
+
+        <a href="#contato" class="btn btn-primary" style="padding: 1.25rem 3rem;">Falar com Especialista B2B</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section-padding" style="background-color: #f8fafc; color: var(--color-brand-dark);">
+    <div class="container">
+      <div class="grid-2">
+        <!-- Form -->
+        <div>
+          <h2 style="margin-bottom: 1.5rem;">Solicite uma Cotação</h2>
+          <p style="margin-bottom: 2rem; color: var(--color-brand-gray);">Preencha o formulário abaixo para atendimento
+            comercial corporativo.</p>
+
+          <form style="display: grid; gap: 1rem;">
+            <input type="text" placeholder="Nome Completo"
+              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+            <input type="email" placeholder="Email Corporativo"
+              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+            <input type="text" placeholder="Empresa / Órgão"
+              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <input type="text" placeholder="Telefone"
+                style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+              <input type="number" placeholder="Tamanho da Frota"
+                style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
             </div>
-            <p>&copy; 2025 Razi Motors. Todos os direitos reservados.</p>
-            <p style="margin-top: 1rem; font-size: 0.
+            <textarea rows="4" placeholder="Mensagem"
+              style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);"></textarea>
+            <button type="submit" class="btn btn-primary" style="justify-content: center; width: 100%;">Enviar
+              Solicitação</button>
+          </form>
+        </div>
+
+        <!-- Map / Info -->
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <div
+            style="background: var(--color-brand-dark); color: white; padding: 2rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Localização Estratégica</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 0.5rem;">Fácil acesso às principais rodovias.</p>
+            <p style="font-weight: 700;">Rua Plínio Dionísio de Freitas, 10 <br> Bairro: Jardim São Roberto<br>São Paulo
+              - SP, CEP: 03978-780</p>
+          </div>
+          <!-- <div
+            style="flex-grow: 1; background: #e2e8f0; border-radius: var(--radius-sm); min-height: 250px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--color-text-muted);">[Mapa Interativo Aqui]</span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: #020617; color: var(--color-text-muted); padding: 3rem 0; font-size: 0.9rem;">
+    <div class="container text-center">
+      <p style="margin-bottom: 1rem;">&copy; 2025 Razi Motors. Todos os direitos reservados.</p>
+      <p>Engenharia de Ponta e Gestão de Frotas.</p>
+    </div>
+  </footer>
+
+  <script src="src/js/main.js"></script>
+</body>
+
+</html>
