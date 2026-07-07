@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "wsl.exe",
+      "runtimeArgs": [
+        "-d",
+        "Ubuntu-22.04",
+        "--",
+        "bash",
+        "-lc",
+        "cd /home/murilo/razimotors && exec python3 -u -m http.server 5173 --bind 0.0.0.0"
+      ],
+      "port": 5173
+    }
+  ]
+}
